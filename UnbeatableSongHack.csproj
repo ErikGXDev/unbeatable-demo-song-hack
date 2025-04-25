@@ -1,0 +1,524 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<RootNamespace>UnbeatableSongHack</RootNamespace>
+		<LangVersion>default</LangVersion>
+		<IsPackable>false</IsPackable>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<AssemblyName>UnbeatableSongHack</AssemblyName>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="AllIn1VfxAssmebly">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\AllIn1VfxAssmebly.dll</HintPath>
+		</Reference>
+		<Reference Include="AllIn1VfxDemoScriptAssemblies">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\AllIn1VfxDemoScriptAssemblies.dll</HintPath>
+		</Reference>
+		<Reference Include="AmplifyShaderEditor.Samples.BuiltIn">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\AmplifyShaderEditor.Samples.BuiltIn.dll</HintPath>
+		</Reference>
+		<Reference Include="Antlr4.Runtime.Standard">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Antlr4.Runtime.Standard.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp-firstpass">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Assembly-CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="Cinemachine">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Cinemachine.dll</HintPath>
+		</Reference>
+		<Reference Include="Coffee.UnmaskForUGUI">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Coffee.UnmaskForUGUI.dll</HintPath>
+		</Reference>
+		<Reference Include="CommandsInAnAssemblyDefinition">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\CommandsInAnAssemblyDefinition.dll</HintPath>
+		</Reference>
+		<Reference Include="CsvHelper">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\CsvHelper.dll</HintPath>
+		</Reference>
+		<Reference Include="DOTween">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\DOTween.dll</HintPath>
+		</Reference>
+		<Reference Include="Dreamteck.Splines">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Dreamteck.Splines.dll</HintPath>
+		</Reference>
+		<Reference Include="Dreamteck.Utilities">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Dreamteck.Utilities.dll</HintPath>
+		</Reference>
+		<Reference Include="FMODUnity">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\FMODUnity.dll</HintPath>
+		</Reference>
+		<Reference Include="FMODUnityResonance">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\FMODUnityResonance.dll</HintPath>
+		</Reference>
+		<Reference Include="Google.Protobuf">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Google.Protobuf.dll</HintPath>
+		</Reference>
+		<Reference Include="Lattice.Runtime">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Lattice.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.CSharp">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Microsoft.CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="MPUIKit">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\MPUIKit.dll</HintPath>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Newtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="PlayMaker">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\PlayMaker.dll</HintPath>
+		</Reference>
+		<Reference Include="Rewired_Core">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Rewired_Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Rewired_Windows">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Rewired_Windows.dll</HintPath>
+		</Reference>
+		<Reference Include="Sirenix.OdinInspector.Attributes">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Sirenix.OdinInspector.Attributes.dll</HintPath>
+		</Reference>
+		<Reference Include="Sirenix.OdinInspector.Modules.UnityLocalization">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Sirenix.OdinInspector.Modules.UnityLocalization.dll</HintPath>
+		</Reference>
+		<Reference Include="Sirenix.Serialization.Config">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Sirenix.Serialization.Config.dll</HintPath>
+		</Reference>
+		<Reference Include="Sirenix.Serialization">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Sirenix.Serialization.dll</HintPath>
+		</Reference>
+		<Reference Include="Sirenix.Utilities">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Sirenix.Utilities.dll</HintPath>
+		</Reference>
+		<Reference Include="UIEffect">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UIEffect.dll</HintPath>
+		</Reference>
+		<Reference Include="UModelerCommon">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UModelerCommon.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Addressables">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Addressables.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.AI.Navigation">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.AI.Navigation.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Animation.Rigging">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Animation.Rigging.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Animation.Rigging.DocCodeExamples">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Animation.Rigging.DocCodeExamples.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Burst">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Burst.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Burst.Unsafe">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Burst.Unsafe.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Collections">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Collections.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Collections.LowLevel.ILSupport">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.InternalAPIEngineBridge.013">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.InternalAPIEngineBridge.013.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Localization">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Localization.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Mathematics">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Mathematics.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.MemoryProfiler">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.MemoryProfiler.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Postprocessing.Runtime">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder.Csg">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.ProBuilder.Csg.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.ProBuilder.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder.KdTree">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.ProBuilder.KdTree.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder.Poly2Tri">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.ProBuilder.Poly2Tri.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder.Stl">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.ProBuilder.Stl.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Profiling.Core">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Profiling.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Recorder.Base">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Recorder.Base.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Recorder">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Recorder.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.Core.Runtime">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ResourceManager">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.ResourceManager.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ScriptableBuildPipeline">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.ScriptableBuildPipeline.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Analytics">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Analytics.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Configuration">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Configuration.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Device">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Device.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Environments">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Environments.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Environments.Internal">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Environments.Internal.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Internal">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Internal.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Networking">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Networking.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Registration">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Registration.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Scheduler">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Scheduler.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Telemetry">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Telemetry.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Threading">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Services.Core.Threading.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Splines">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Splines.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.TerrainTools">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.TerrainTools.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.TextMeshPro">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Timeline">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\Unity.Timeline.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AccessibilityModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AIModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.AIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AndroidJNIModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AnimationModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ARModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ARModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AssetBundleModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AudioModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ClothModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ClothModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ClusterInputModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ClusterRendererModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ContentLoadModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ContentLoadModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CrashReportingModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.DirectorModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.DSPGraphModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.DSPGraphModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GameCenterModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GIModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.GIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GridModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.GridModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.HotReloadModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.HotReloadModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ImageConversionModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.IMGUIModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.InputLegacyModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.InputModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.InputModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.JSONSerializeModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.LocalizationModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.LocalizationModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.NVIDIAModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.NVIDIAModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ParticleSystemModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PerformanceReportingModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.Physics2DModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PhysicsModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ProfilerModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PropertiesModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.PropertiesModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ScreenCaptureModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SharedInternalsModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SpatialTracking">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.SpatialTracking.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SpriteMaskModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SpriteShapeModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.StreamingModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.StreamingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SubstanceModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.SubstanceModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SubsystemsModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TerrainModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TerrainPhysicsModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextCoreFontEngineModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextCoreTextEngineModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextRenderingModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TilemapModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TLSModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.TLSModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UI.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UIElementsModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UIModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UmbraModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UmbraModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityAnalyticsModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityConnectModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityCurlModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityCurlModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityTestProtocolModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestAudioModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestTextureModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestWWWModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VehiclesModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.VehiclesModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VFXModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.VFXModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VideoModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VirtualTexturingModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.VirtualTexturingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VRModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.VRModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.WindModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.WindModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.XR.LegacyInputHelpers">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.XRModule">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityEngine.XRModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityMainThreadDispatcher">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\UnityMainThreadDispatcher.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Memory">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Memory.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Nature">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Nature.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Packages">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Packages.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Pooling">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Pooling.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Rendering">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Rendering.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Rendering.Instancing">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Rendering.Instancing.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Rendering.Nature">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Rendering.Nature.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.ShaderX">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.ShaderX.dll</HintPath>
+		</Reference>
+		<Reference Include="VisualDesignCafe.Threading">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\VisualDesignCafe.Threading.dll</HintPath>
+		</Reference>
+		<Reference Include="XNode">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\XNode.dll</HintPath>
+		</Reference>
+		<Reference Include="XNodeOdin">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\XNodeOdin.dll</HintPath>
+		</Reference>
+		<Reference Include="YarnSpinner.Compiler">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\YarnSpinner.Compiler.dll</HintPath>
+		</Reference>
+		<Reference Include="YarnSpinner">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\YarnSpinner.dll</HintPath>
+		</Reference>
+		<Reference Include="YarnSpinner.Unity">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\UNBEATABLE [DEMO]_Data\Managed\YarnSpinner.Unity.dll</HintPath>
+		</Reference>
+		<Reference Include="MelonLoader">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\MelonLoader\net35\MelonLoader.dll</HintPath>
+		</Reference>
+		<Reference Include="0Harmony">
+			<HintPath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\MelonLoader\net35\0Harmony.dll</HintPath>
+		</Reference>
+
+	</ItemGroup>
+
+	<PropertyGroup>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="Cheats\AutoPlay.cs" />
+		<Compile Include="Cheats\GodMode.cs" />
+		<Compile Include="Cheats\SongHackUI.cs" />
+		<Compile Include="Core.cs" />
+		<Compile Include="CustomMaps\CustomArcade.cs" />
+		<Compile Include="CustomMaps\CustomMaps.cs" />
+		<Compile Include="CustomMaps\DatabaseConfig.cs" />
+		<Compile Include="CustomMaps\DatabaseLoader.cs" />
+		<Compile Include="CustomMaps\Encoder.cs" />
+		<Compile Include="CustomMaps\Player.cs" />
+		<Compile Include="FMODInstances.cs" />
+		<Compile Include="Cheats\TreeExplorer.cs" />
+	</ItemGroup>
+	
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\Mods&quot;" />
+	</Target>
+</Project>

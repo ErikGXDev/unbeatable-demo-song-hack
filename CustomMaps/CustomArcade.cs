@@ -43,13 +43,15 @@ namespace UnbeatableSongHack.CustomMaps
 
             // Check if the song name is already in the list
             // If not, add it to the list and the dictionary
-            if (!songNames.Contains(songName)) {
+            if (!songNames.Contains(songName))
+            {
                 songNames.Add(songName);
                 beatmapIndexTraverse.Field("_songNames").SetValue(songNames);
 
                 var songs = beatmapIndexTraverse.Field("_songs").GetValue<Dictionary<string, BeatmapIndex.Song>>();
                 songs.TryAdd(songName, item.Song);
-            } else
+            }
+            else
             {
                 // If the song already exists, we need to get it from the dictionary to avoid creating a new one
                 // (I think), would probably work without this but it doesn't hurt

@@ -8,7 +8,7 @@ using static UnbeatableSongHack.Core;
 
 namespace UnbeatableSongHack.Cheats
 {
-   public class TreeExplorer
+    public class TreeExplorer
     {
 
         // This handles drawing the explorer that appears when clicking "Get All Events."

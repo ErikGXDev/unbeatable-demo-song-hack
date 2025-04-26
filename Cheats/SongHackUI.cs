@@ -287,6 +287,6 @@ namespace UnbeatableSongHack.Cheats
                 GUI.EndScrollView();
             }
         }
-        }
-    
+    }
+
 }

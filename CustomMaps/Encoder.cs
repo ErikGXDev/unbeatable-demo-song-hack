@@ -53,7 +53,7 @@ namespace UnbeatableSongHack.CustomMaps
             string encodedAudioPath = audioPath.Replace("/", pathSymbol);
 
             var encodedPath = customPathIndicator + dataSeparator + encodedMapPath + dataSeparator + encodedAudioPath;
-            
+
             return encodedPath;
         }
 
@@ -101,7 +101,7 @@ namespace UnbeatableSongHack.CustomMaps
         // Turn __CUSTOM.PATH|TO|MAP.PATH|TO|AUDIO into Path/To/Audio
         public static string DecodeAudioName(string path)
         {
-            
+
             // Split the path into map and audio parts
             string[] parts = GetDataParts(path);
 

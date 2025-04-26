@@ -122,7 +122,7 @@ namespace UnbeatableSongHack.CustomMaps
 
 
         // Make the game play local files
-        [HarmonyPatch(typeof(RhythmTracker), "PrepareInstance", new Type[] { typeof(EventInstance), typeof(PlaySource), typeof(string)})]
+        [HarmonyPatch(typeof(RhythmTracker), "PrepareInstance", new Type[] { typeof(EventInstance), typeof(PlaySource), typeof(string) })]
         public class RhythmTrackerPreparePatch
         {
             public static bool Prefix(EventInstance instance, ref PlaySource source, ref string key)
@@ -136,7 +136,8 @@ namespace UnbeatableSongHack.CustomMaps
                     {
                         Core.GetLogger().Msg("Loading custom audio: " + key);
                         source = PlaySource.FromFile;
-                    } else
+                    }
+                    else
                     {
                         Core.GetLogger().Msg("Custom audio not found: " + key);
                     }

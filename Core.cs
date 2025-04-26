@@ -21,7 +21,7 @@ namespace UnbeatableSongHack
 {
     public class Core : MelonMod
     {
-        
+
         public override void OnInitializeMelon()
         {
             LoggerInstance.Msg("Initialized Song Hack!");
@@ -56,7 +56,7 @@ namespace UnbeatableSongHack
             return core.LoggerInstance;
         }
 
-      
+
 
 
 
@@ -102,7 +102,7 @@ namespace UnbeatableSongHack
                     //RESULT h_soundInfo = RuntimeManager.StudioSystem.getSoundInfo(key, out h_info);
 
                     //LoggerInstance.Msg("SoundInfo: " + (h_info.name));
-                    
+
 
 
 
@@ -116,7 +116,7 @@ namespace UnbeatableSongHack
         }
 
 
-        
+
 
         // Doesn't really work, but it sometimes logs when something is played
         /*
@@ -150,13 +150,13 @@ namespace UnbeatableSongHack
         // Might be useful for some custom beatmaps, although some info is fetched from
         // TextAssets that we cannot create/access through mods.
         // It may be a mess.
-       
+
 
 
     }
 
 
-   
+
 
 
 

@@ -108,7 +108,7 @@ namespace UnbeatableSongHack.CustomMaps
 
         public static List<BeatmapItem> GetLocalBeatmapItems()
         {
-            
+
             // Get the directory of the custom songs
             string songDir = getLocalBeatmapDirectory();
 
@@ -128,7 +128,7 @@ namespace UnbeatableSongHack.CustomMaps
                 Beatmap beatmap = ScriptableObject.CreateInstance<Beatmap>();
                 BeatmapParserEngine beatmapParserEngine = new BeatmapParserEngine();
                 beatmapParserEngine.ReadBeatmap(contents, ref beatmap);
-                
+
 
                 Core.GetLogger().Msg("Parsed beatmap: " + beatmap.metadata.title);
 

@@ -1,0 +1,93 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Rhythm;
+using static Arcade.UI.SongSelect.ArcadeSongDatabase;
+using UnityEngine;
+
+namespace UnbeatableSongHack.CustomMaps
+{
+    class LocalLoader
+    {
+        public static bool LoadBeatmapFromFile(string file, out BeatmapItem beatmapItem)
+        {
+
+            if (!File.Exists(file))
+            {
+                Core.GetLogger().Msg("Beatmap not found: " + file);
+                beatmapItem = null;
+                return false;
+            }
+
+            // Read the beatmap file
+            string contents = File.ReadAllText(file);
+
+            Beatmap beatmap = ScriptableObject.CreateInstance<Beatmap>();
+            BeatmapParserEngine beatmapParserEngine = new BeatmapParserEngine();
+            beatmapParserEngine.ReadBeatmap(contents, ref beatmap);
+
+
+            Core.GetLogger().Msg("Parsed beatmap: " + beatmap.metadata.title);
+
+            beatmapItem = new BeatmapItem();
+
+            beatmapItem.Beatmap = beatmap;
+            beatmapItem.Beatmap.metadata.tagData.Level = 99;
+            beatmapItem.Beatmap.metadata.tagData.SongLength = 99;
+
+
+            string difficulty = beatmap.metadata.version;
+
+            string[] defaultDifficulties = BeatmapIndex.defaultIndex.Difficulties;
+
+            // Check if the difficulty is in the default list
+            // If not, set it to one that can be found in the game
+            if (!defaultDifficulties.Contains(difficulty))
+            {
+                difficulty = "UNBEATABLE";
+            }
+
+            // Find audio file
+            var basePath = Path.GetDirectoryName(file);
+            var audioFilename = beatmap.general.audioFilename;
+            var audioPath = Path.Combine(basePath, audioFilename);
+
+            // Check for audio file specified in metadata
+            if (!File.Exists(audioPath))
+            {
+                // Check for audio file in the same directory as the beatmap
+                audioFilename = Path.GetFileName(audioPath);
+                audioPath = Path.Combine(basePath, audioFilename);
+                if (!File.Exists(audioPath))
+                {
+
+                    // Check for potential audio.mp3 file
+                    audioPath = Path.Combine(basePath, "audio.mp3");
+                    if (!File.Exists(audioPath))
+                    {
+                        Core.GetLogger().Msg("Audio file not found! Using EMPTY DIARY as fallback... :(");
+                        audioPath = "EMPTY DIARY";
+                    }
+
+                }
+            }
+
+
+            var mapDataName = Encoder.EncodeSongName(file, audioPath);
+
+            beatmapItem.Path = mapDataName + "/" + difficulty;
+
+            beatmapItem.Song = new BeatmapIndex.Song(mapDataName);
+            beatmapItem.Song.stageScene = "TrainStationRhythm";
+
+
+            TextAsset textAsset = new TextAsset(contents);
+
+            beatmapItem.BeatmapInfo = new BeatmapInfo(textAsset, difficulty);
+
+            beatmapItem.Highscore = new HighScoreItem(beatmapItem.Path, 0, 0f, 0, cleared: false, new Dictionary<string, int>(), Modifiers.None);
+            
+            return true;
+        }
+    }
+}

@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace UnbeatableSongHack.CustomMaps
 {
     class Encoder
     {
+
+        // Using symbols that can't be used in paths to avoid conflicts
         public static string pathSymbol = "|";
-        public static string customPathIndicator = "__CUSTOM";
         public static string dataSeparator = "%";
+
+        // Custom indicator to identify custom songs in other parts of the code
+        public static string customPathIndicator = "__CUSTOM";
+
 
         public static string NormalizePath(string path)
         {
@@ -19,7 +22,7 @@ namespace UnbeatableSongHack.CustomMaps
         // Turn Path/To/Map, Path/To/Audio into __CUSTOM.PATH|TO|MAP.PATH|TO|AUDIO
         public static string EncodeSongName(string mapPath, string audioPath)
         {
-            string songDir = DatabaseLoader.getLocalBeatmapDirectory();
+            string songDir = LocalDatabase.getLocalBeatmapDirectory();
 
             // Remove the song directory from the path
             mapPath = NormalizePath(mapPath);
@@ -87,7 +90,7 @@ namespace UnbeatableSongHack.CustomMaps
 
             path = parts[0].Replace(pathSymbol, "/");
 
-            var songDir = DatabaseLoader.getLocalBeatmapDirectory();
+            var songDir = LocalDatabase.getLocalBeatmapDirectory();
 
             // Add the song directory back to the path
             if (!path.StartsWith(songDir))
@@ -112,7 +115,7 @@ namespace UnbeatableSongHack.CustomMaps
 
             path = parts[1].Replace(pathSymbol, "/");
 
-            var songDir = DatabaseLoader.getLocalBeatmapDirectory();
+            var songDir = LocalDatabase.getLocalBeatmapDirectory();
 
             // Add the song directory back to the path
             if (!path.StartsWith(songDir))

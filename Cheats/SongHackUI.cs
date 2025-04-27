@@ -177,7 +177,7 @@ namespace UnbeatableSongHack.Cheats
                 {
                     if (!string.IsNullOrEmpty(textInput))
                     {
-                        CustomMaps.Player.PlayFromKey(textInput);
+                        CustomMaps.LocalPlayer.PlayFromKey(textInput);
                         lastEventPath = "Key: " + textInput;
                         Core.GetLogger().Msg("Playing Key: " + textInput);
                     }
@@ -187,11 +187,11 @@ namespace UnbeatableSongHack.Cheats
                 {
                     if (!string.IsNullOrEmpty(textInput))
                     {
-                        CustomMaps.Player.LoadBeatmapFromFile(textInput);
+                        CustomMaps.LocalPlayer.PlayBeatmapFromFile(textInput);
                     }
                     else
                     {
-                        CustomMaps.Player.LoadBeatmapFromFile();
+                        CustomMaps.LocalPlayer.PlayBeatmapFromFile();
                     }
                 }
 
@@ -199,7 +199,7 @@ namespace UnbeatableSongHack.Cheats
                 {
                     try
                     {
-                        var packages = DatabaseLoader.GetPackages();
+                        var packages = OnlineDatabase.GetPackages();
                         Core.GetLogger().Msg(packages.ToString());
                     }
                     catch (Exception e)
@@ -213,7 +213,7 @@ namespace UnbeatableSongHack.Cheats
                 {
                     try
                     {
-                        var packages = DatabaseLoader.GetLocalBeatmapItems();
+                        var packages = LocalDatabase.GetLocalBeatmapItems();
                         foreach (var package in packages)
                         {
                             Core.GetLogger().Msg(package.Path);

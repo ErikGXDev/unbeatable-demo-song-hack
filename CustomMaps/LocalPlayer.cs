@@ -12,11 +12,13 @@ using FMOD.Studio;
 
 namespace UnbeatableSongHack.CustomMaps
 {
-    public class Player
+    public class LocalPlayer
     {
 
 
         // "Progessions" are some kind of class 
+        // that determine how the game behaves in stages
+        // They are used to load the beatmap and the audio
         public class CustomProgression : IProgression
         {
             public string stageScene = "TrainStationRhythm";
@@ -47,7 +49,7 @@ namespace UnbeatableSongHack.CustomMaps
             public string GetBeatmapPath()
             {
                 // Placeholder
-                return "__CUSTOM__/CUSTOMDIFF";
+                return "";
             }
             public string GetSongName()
             {
@@ -76,8 +78,17 @@ namespace UnbeatableSongHack.CustomMaps
             }
         }
 
-        public static void LoadBeatmapFromFile(string filePath = "C:\\Users\\Anwender\\Downloads\\testmap.txt")
+        public static void PlayBeatmapFromFile(string filePath = "C:\\Users\\Anwender\\Downloads\\testmap.txt")
         {
+
+            if(!LocalLoader.LoadBeatmapFromFile(filePath, out BeatmapItem beatmapItem))
+            {
+                Core.GetLogger().Msg("Beatmap not found: " + filePath);
+                return;
+            }
+
+            string audioPath = Encoder.DecodeAudioName(beatmapItem.Path);
+
 
             CustomProgression customProgression = new CustomProgression(filePath);
 
@@ -95,11 +106,10 @@ namespace UnbeatableSongHack.CustomMaps
         {
             public static bool Prefix(ref BeatmapParser __instance)
             {
-                if (JeffBezosController.rhythmProgression.GetBeatmapPath().StartsWith("__CUSTOM") && false)
+                if (JeffBezosController.rhythmProgression is CustomProgression progression)
                 {
                     Core.GetLogger().Msg("Loading custom beatmap...");
 
-                    var progression = JeffBezosController.rhythmProgression as CustomProgression;
 
                     __instance.beatmapIndex = BeatmapIndex.defaultIndex;
 
@@ -147,7 +157,7 @@ namespace UnbeatableSongHack.CustomMaps
         }
 
 
-        // Patch to load beatmaps from file
+        // Patch to load audio from file
         // Since the game really wants to load from its own audio table,
         // we need to patch this to load from a file instead
         // That way we can make the game load any sound file (and in this case,

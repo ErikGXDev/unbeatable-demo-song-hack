@@ -15,7 +15,7 @@
 
 
 		<!-- Edit this path to point to your game path -->
-		<GamePath>X:\Steam\steamapps\common\UNBEATABLE Demo\</GamePath>
+		<GamePath>D:\Programs\Steam\steamapps\common\UNBEATABLE Demo\</GamePath>
 
 
 		<ManagedPath>$(GamePath)\UNBEATABLE [DEMO]_Data\Managed\</ManagedPath>
@@ -516,11 +516,12 @@
 		<Compile Include="Cheats\SongHackUI.cs" />
 		<Compile Include="Core.cs" />
 		<Compile Include="CustomMaps\CustomArcade.cs" />
-		<Compile Include="CustomMaps\CustomMaps.cs" />
 		<Compile Include="CustomMaps\DatabaseConfig.cs" />
-		<Compile Include="CustomMaps\DatabaseLoader.cs" />
+		<Compile Include="CustomMaps\LocalDatabase.cs" />
 		<Compile Include="CustomMaps\Encoder.cs" />
-		<Compile Include="CustomMaps\Player.cs" />
+		<Compile Include="CustomMaps\LocalLoader.cs" />
+		<Compile Include="CustomMaps\OnlineDatabase.cs" />
+		<Compile Include="CustomMaps\LocalPlayer.cs" />
 		<Compile Include="FMODInstances.cs" />
 		<Compile Include="Cheats\TreeExplorer.cs" />
 	</ItemGroup>

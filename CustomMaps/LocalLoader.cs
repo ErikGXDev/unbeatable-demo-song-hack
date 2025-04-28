@@ -4,6 +4,7 @@ using System.Text;
 using Rhythm;
 using static Arcade.UI.SongSelect.ArcadeSongDatabase;
 using UnityEngine;
+using Arcade.UI.SongSelect;
 
 namespace UnbeatableSongHack.CustomMaps
 {
@@ -85,8 +86,8 @@ namespace UnbeatableSongHack.CustomMaps
 
             beatmapItem.BeatmapInfo = new BeatmapInfo(textAsset, difficulty);
 
-            beatmapItem.Highscore = new HighScoreItem(beatmapItem.Path, 0, 0f, 0, cleared: false, new Dictionary<string, int>(), Modifiers.None);
-            
+            beatmapItem.Highscore = ArcadeSongDatabase.Instance.HighScores.GetScoreItem(mapDataName + "/" + difficulty);
+
             return true;
         }
     }

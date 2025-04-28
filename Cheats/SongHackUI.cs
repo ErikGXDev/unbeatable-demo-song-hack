@@ -20,7 +20,7 @@ namespace UnbeatableSongHack.Cheats
         public TreeNode rootNode = new TreeNode("Root");
         public Dictionary<string, bool> expandedStates = new Dictionary<string, bool>();
 
-        public Rect windowRect = new Rect(20, 20, 400, 600);
+        public Rect windowRect = new Rect(-100, -100, 0, 0);
         public Vector2 scrollPosition = new Vector2(0, 0);
 
         public string textInput = "";

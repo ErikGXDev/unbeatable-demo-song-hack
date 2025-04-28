@@ -47,7 +47,6 @@ namespace UnbeatableSongHack.CustomMaps
                 var songs = beatmapIndexTraverse.Field("_songs").GetValue<Dictionary<string, Song>>();
                 songs.TryAdd(songName, item.Song);
 
-
                 var categorySongs = beatmapIndexTraverse.Field("_categorySongs").GetValue<Dictionary<Category, List<Song>>>();
                 categorySongs[customCategory].Add(item.Song);
                 beatmapIndexTraverse.Field("_categorySongs").SetValue(categorySongs);
@@ -193,6 +192,21 @@ namespace UnbeatableSongHack.CustomMaps
                 {
                     __result.Add(customCategory);
                 }
+            }
+        }
+
+
+        // Patch the song function to return all (also hidden) songs,
+        // so we can access hidden beatmaps
+        [HarmonyPatch(typeof(BeatmapIndex), "GetVisibleSongs")]
+        public class BeatmapIndexPatch
+        {
+            public static bool Prefix(ref BeatmapIndex __instance, ref List<Song> __result)
+            {
+                // Suprisingly easy.
+                __result = __instance.GetAllSongs();
+
+                return false;
             }
         }
 

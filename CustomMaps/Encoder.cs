@@ -22,7 +22,7 @@ namespace UnbeatableSongHack.CustomMaps
         // Turn Path/To/Map, Path/To/Audio into __CUSTOM.PATH|TO|MAP.PATH|TO|AUDIO
         public static string EncodeSongName(string mapPath, string audioPath)
         {
-            string songDir = LocalDatabase.getLocalBeatmapDirectory();
+            string songDir = LocalDatabase.GetLocalBeatmapDirectory();
 
             // Remove the song directory from the path
             mapPath = NormalizePath(mapPath);
@@ -67,6 +67,13 @@ namespace UnbeatableSongHack.CustomMaps
             {
                 path = path.Substring(customPathIndicator.Length + dataSeparator.Length);
             }
+
+            if (path.Contains("/"))
+            {
+                path = path.Split(new char[] { '/' }, 2)[0];
+            }
+
+
             string[] parts = path.Split(new char[] { char.Parse(dataSeparator) }, 2);
 
             if (parts.Length == 1)
@@ -90,7 +97,7 @@ namespace UnbeatableSongHack.CustomMaps
 
             path = parts[0].Replace(pathSymbol, "/");
 
-            var songDir = LocalDatabase.getLocalBeatmapDirectory();
+            var songDir = LocalDatabase.GetLocalBeatmapDirectory();
 
             // Add the song directory back to the path
             if (!path.StartsWith(songDir))
@@ -115,7 +122,7 @@ namespace UnbeatableSongHack.CustomMaps
 
             path = parts[1].Replace(pathSymbol, "/");
 
-            var songDir = LocalDatabase.getLocalBeatmapDirectory();
+            var songDir = LocalDatabase.GetLocalBeatmapDirectory();
 
             // Add the song directory back to the path
             if (!path.StartsWith(songDir))

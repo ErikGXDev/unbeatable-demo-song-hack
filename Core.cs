@@ -14,7 +14,8 @@ using static Arcade.UI.SongSelect.ArcadeSongDatabase;
 using UnityEngine.UIElements;
 using UnbeatableSongHack.Cheats;
 
-[assembly: MelonInfo(typeof(UnbeatableSongHack.Core), "UnbeatableSongHack", "1.0.0", "Erik G", null)]
+// "Unbeatable Demo Song Hack" Mod by Erik G - 2025
+[assembly: MelonInfo(typeof(UnbeatableSongHack.Core), "UnbeatableSongHack", "1.1.0", "Erik G", null)]
 [assembly: MelonGame("D-CELL GAMES", "UNBEATABLE [DEMO]")]
 
 namespace UnbeatableSongHack
@@ -54,25 +55,6 @@ namespace UnbeatableSongHack
         {
             MelonBase core = Core.FindMelon("UnbeatableSongHack", "Erik G");
             return core.LoggerInstance;
-        }
-
-
-
-
-
-
-        // Patch the song function to return all (also hidden) songs,
-        // so we can access hidden beatmaps
-        [HarmonyPatch(typeof(BeatmapIndex), "GetVisibleSongs")]
-        public class BeatmapIndexPatch
-        {
-            public static bool Prefix(ref BeatmapIndex __instance, ref List<Song> __result)
-            {
-                // Suprisingly easy.
-                __result = __instance.GetAllSongs();
-
-                return false;
-            }
         }
 
 

@@ -15,7 +15,7 @@
 
 
 		<!-- Edit this path to point to your game path -->
-		<GamePath>D:\Programs\Steam\steamapps\common\UNBEATABLE Demo\</GamePath>
+		<GamePath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo\</GamePath>
 
 
 		<ManagedPath>$(GamePath)\UNBEATABLE [DEMO]_Data\Managed\</ManagedPath>

@@ -22,44 +22,30 @@ namespace UnbeatableSongHack.CustomMaps
         public class CustomProgression : IProgression
         {
             public string stageScene = "TrainStationRhythm";
-            public string filePath = "./none.txt";
-            public string audioKey = "EMPTY DIARY";
 
-            public CustomProgression(string textFile)
+            public BeatmapItem beatmapItem;
+
+            public CustomProgression(BeatmapItem beatmapItem)
             {
-                this.filePath = textFile;
+                this.beatmapItem = beatmapItem;
 
-                // Look for an audio.mp3 in the same directory as the beatmap
-                // Might as well use the audioFilename property from the beatmap itself later
-                string directory = Path.GetDirectoryName(filePath);
-
-                var audioPath = Path.Combine(directory, "audio.mp3");
-
-                // If an audio is found, set it to the audio path
-                var audioTitle = "EMPTY DIARY";
-                if (File.Exists(audioPath))
-                {
-                    audioTitle = audioPath;
-                }
-
-                this.audioKey = audioTitle;
                 this.stageScene = "TrainStationRhythm";
             }
 
             public string GetBeatmapPath()
             {
                 // Placeholder
-                return "";
+                return beatmapItem.Path;
             }
             public string GetSongName()
             {
-                return audioKey;
+                return beatmapItem.Song.name;
             }
 
             public string GetDifficulty()
             {
                 // Placeholder
-                return "CUSTOMDIFF";
+                return "UNBEATABLE";
             }
 
             public void Finish(string sceneIndex)
@@ -81,16 +67,14 @@ namespace UnbeatableSongHack.CustomMaps
         public static void PlayBeatmapFromFile(string filePath = "C:\\Users\\Anwender\\Downloads\\testmap.txt")
         {
 
+
             if(!LocalLoader.LoadBeatmapFromFile(filePath, out BeatmapItem beatmapItem))
             {
                 Core.GetLogger().Msg("Beatmap not found: " + filePath);
                 return;
             }
 
-            string audioPath = Encoder.DecodeAudioName(beatmapItem.Path);
-
-
-            CustomProgression customProgression = new CustomProgression(filePath);
+            CustomProgression customProgression = new CustomProgression(beatmapItem);
 
             JeffBezosController.rhythmProgression = customProgression;
 
@@ -113,14 +97,10 @@ namespace UnbeatableSongHack.CustomMaps
 
                     __instance.beatmapIndex = BeatmapIndex.defaultIndex;
 
-                    var contents = File.ReadAllText(progression.filePath);
 
-                    BeatmapParserEngine beatmapParserEngine = new BeatmapParserEngine();
-                    var beatmap = ScriptableObject.CreateInstance<Beatmap>();
-                    beatmapParserEngine.ReadBeatmap(contents, ref beatmap);
 
                     // Set the beatmap to the one by the parser
-                    __instance.beatmap = beatmap;
+                    __instance.beatmap = progression.beatmapItem.Beatmap;
                     __instance.audioKey = progression.GetSongName();
                     __instance.beatmapPath = progression.GetBeatmapPath();
 
@@ -141,6 +121,7 @@ namespace UnbeatableSongHack.CustomMaps
                 {
 
                     key = Encoder.DecodeAudioName(key);
+                    
 
                     if (File.Exists(key))
                     {
@@ -218,21 +199,21 @@ namespace UnbeatableSongHack.CustomMaps
 
                 beatmapItem.Highscore = new HighScoreItem(key, 0, 0f, 0, cleared: false, new Dictionary<string, int>(), Modifiers.None);
 
-                Core.GetLogger().Msg("Adding song to list: " + beatmapItem.Path);
 
-                // This whole part would be needed for AddSongList()
                 beatmapItem.Beatmap = new Beatmap();
-                beatmapItem.Beatmap.metadata.title = "Custom " + name;
-                beatmapItem.Beatmap.metadata.titleUnicode = "Custom " + name;
-                beatmapItem.Beatmap.metadata.artist = "Not You";
-                beatmapItem.Beatmap.metadata.artistUnicode = "Not You";
-                beatmapItem.Beatmap.metadata.tagData.Level = 10;
-
 
                 // This was a test and is not needed
+
+                // This whole part would be needed for AddSongList()
+
+                //beatmapItem.Beatmap.metadata.title = "Custom " + name;
+                //beatmapItem.Beatmap.metadata.titleUnicode = "Custom " + name;
+                //beatmapItem.Beatmap.metadata.artist = "Not You";
+                //beatmapItem.Beatmap.metadata.artistUnicode = "Not You";
+                //beatmapItem.Beatmap.metadata.tagData.Level = 10;
                 //AddSongToArcadeList(songList,beatmapItem);
 
-                Core.GetLogger().Msg("Added Key: " + key);
+                Core.GetLogger().Msg("Playing Key: " + key);
 
 
                 arcadeBGMManger.PlaySongPreview(beatmapItem);

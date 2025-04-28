@@ -11,7 +11,7 @@ namespace UnbeatableSongHack.CustomMaps
     {
 
 
-        public static string getLocalBeatmapDirectory()
+        public static string GetLocalBeatmapDirectory()
         {
             // Path of the game exe
             string dataDir = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf('/'));
@@ -24,7 +24,7 @@ namespace UnbeatableSongHack.CustomMaps
         {
 
             // Get the directory of the custom songs
-            string songDir = getLocalBeatmapDirectory();
+            string songDir = GetLocalBeatmapDirectory();
 
             Core.GetLogger().Msg("Getting local beatmaps from: " + songDir);
 

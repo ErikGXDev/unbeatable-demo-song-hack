@@ -33,8 +33,9 @@ namespace UnbeatableSongHack.CustomMaps
             beatmapItem = new BeatmapItem();
 
             beatmapItem.Beatmap = beatmap;
-            beatmapItem.Beatmap.metadata.tagData.Level = 99;
-            beatmapItem.Beatmap.metadata.tagData.SongLength = 99;
+            if (beatmapItem.Beatmap.metadata.tagData.Level.Equals(0)) { beatmapItem.Beatmap.metadata.tagData.Level = 99; }
+            //beatmapItem.Beatmap.metadata.tagData.Level = 99;
+            //beatmapItem.Beatmap.metadata.tagData.SongLength = 99;
 
 
             string difficulty = beatmap.metadata.version;
@@ -45,7 +46,7 @@ namespace UnbeatableSongHack.CustomMaps
             // If not, set it to one that can be found in the game
             if (!defaultDifficulties.Contains(difficulty))
             {
-                difficulty = "UNBEATABLE";
+                difficulty = "Star";
             }
 
             // Find audio file
@@ -73,8 +74,7 @@ namespace UnbeatableSongHack.CustomMaps
                 }
             }
 
-
-            var mapDataName = Encoder.EncodeSongName(file, audioPath);
+            var mapDataName = Encoder.EncodeSongName(basePath, audioPath);
 
             beatmapItem.Path = mapDataName + "/" + difficulty;
 

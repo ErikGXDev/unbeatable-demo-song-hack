@@ -4,14 +4,7 @@ using FMODUnity;
 using FMOD.Studio;
 using HarmonyLib;
 using Rhythm;
-using static Rhythm.BeatmapIndex;
-using Arcade.UI;
 using System.Runtime.InteropServices;
-using FMOD;
-using static UnbeatableSongHack.Cheats.TreeExplorer;
-using Arcade.UI.SongSelect;
-using static Arcade.UI.SongSelect.ArcadeSongDatabase;
-using UnityEngine.UIElements;
 using UnbeatableSongHack.Cheats;
 
 // "Unbeatable Demo Song Hack" Mod by Erik G - 2025

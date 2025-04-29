@@ -217,7 +217,7 @@ namespace UnbeatableSongHack.Cheats
                         foreach (var package in packages)
                         {
                             Core.GetLogger().Msg(package.Path);
-                            CustomArcade.AddBeatmapItemToArcadeList(Arcade.UI.SongSelect.ArcadeSongDatabase.Instance, package);
+                            CustomArcade.AddBeatmapItemToArcadeList(Arcade.UI.SongSelect.ArcadeSongDatabase.Instance, package, CustomArcade.GetCustomCategory("LOCAL"));
                         }
                     }
                     catch (Exception e)

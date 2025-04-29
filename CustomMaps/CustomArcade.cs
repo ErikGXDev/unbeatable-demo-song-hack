@@ -1,6 +1,7 @@
 ﻿using Arcade.UI;
 using Arcade.UI.SongSelect;
 using HarmonyLib;
+using JetBrains.Annotations;
 using Rhythm;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,11 @@ namespace UnbeatableSongHack.CustomMaps
     public class CustomArcade
     {
 
-        public static Category customCategory = new Category("LOCAL", "Local songs", 7);
+        public static Category localCategory = new Category("LOCAL", "Local songs", 7);
+        public static Category osuCategory = new Category("[white label]", "for editing", 8);
+        public static List<Category> customCategories = new List<Category>([localCategory,osuCategory]);
 
-        public static void AddBeatmapItemToArcadeList(ArcadeSongDatabase instance, BeatmapItem item)
+        public static void AddBeatmapItemToArcadeList(ArcadeSongDatabase instance, BeatmapItem item, Category category)
         {
             var LoggerInstance = Core.GetLogger();
 
@@ -48,7 +51,7 @@ namespace UnbeatableSongHack.CustomMaps
                 songs.TryAdd(songName, item.Song);
 
                 var categorySongs = beatmapIndexTraverse.Field("_categorySongs").GetValue<Dictionary<Category, List<Song>>>();
-                categorySongs[customCategory].Add(item.Song);
+                categorySongs[category].Add(item.Song);
                 beatmapIndexTraverse.Field("_categorySongs").SetValue(categorySongs);
             }
             else
@@ -63,7 +66,7 @@ namespace UnbeatableSongHack.CustomMaps
             Traverse songTraverse = Traverse.Create(item.Song);
 
             // Set song to custom category
-            songTraverse.Field("_category").SetValue(customCategory);
+            songTraverse.Field("_category").SetValue(category);
 
             // Add the beatmap to the song
             var songBeatmaps = songTraverse.Field("_beatmaps").GetValue<Dictionary<string, BeatmapInfo>>();
@@ -113,39 +116,40 @@ namespace UnbeatableSongHack.CustomMaps
 
         }
 
-        public static void TryAddCustomCategory()
+        public static void TryAddCustomCategory(List<Category> categories)
         {
-            BeatmapIndex beatmapIndex = BeatmapIndex.defaultIndex;
-
-            Traverse beatmapIndexTraverse = Traverse.Create(beatmapIndex);
-
-            var beatmapIndexCategories = beatmapIndexTraverse.Field("categories").GetValue<List<Category>>();
-
-            // Check if the custom category already exists
-            if (!beatmapIndexCategories.Contains(customCategory))
+            foreach(Category customCategory in customCategories) 
             {
-                // If not, add it to the list
+                BeatmapIndex beatmapIndex = BeatmapIndex.defaultIndex;
 
-                beatmapIndexCategories.Add(customCategory);
-                beatmapIndexTraverse.Field("categories").SetValue(beatmapIndexCategories);
+                Traverse beatmapIndexTraverse = Traverse.Create(beatmapIndex);
 
-                Core.GetLogger().Msg("Added category " + customCategory.Name);
+                var beatmapIndexCategories = beatmapIndexTraverse.Field("categories").GetValue<List<Category>>();
 
+                // Check if the custom category already exists
+                if (!beatmapIndexCategories.Contains(customCategory))
+                {
+                    //customCategories.Add(customCategory);
+                    // If not, add it to the list
 
-                /*var categoriesByName = beatmapIndexTraverse.Field("CategoriesByName").GetValue<Dictionary<string, Category>>();
-                Core.GetLogger().Msg("DEBUG");
-                categoriesByName.TryAdd(customCategory.Name, customCategory);
-                Core.GetLogger().Msg("DEBUG");
-                beatmapIndexTraverse.Field("CategoriesByName").SetValue(categoriesByName);*/
+                    beatmapIndexCategories.Add(customCategory);
+                    beatmapIndexTraverse.Field("categories").SetValue(beatmapIndexCategories);
 
-
-                var categorySongs = beatmapIndexTraverse.Field("_categorySongs").GetValue<Dictionary<Category, List<Song>>>();
-                categorySongs.TryAdd(customCategory, new List<Song>());
-                beatmapIndexTraverse.Field("_categorySongs").SetValue(categorySongs);
+                    Core.GetLogger().Msg("Added category " + customCategory.Name);
 
 
+                    /*var categoriesByName = beatmapIndexTraverse.Field("CategoriesByName").GetValue<Dictionary<string, Category>>();
+                    Core.GetLogger().Msg("DEBUG");
+                    categoriesByName.TryAdd(customCategory.Name, customCategory);
+                    Core.GetLogger().Msg("DEBUG");
+                    beatmapIndexTraverse.Field("CategoriesByName").SetValue(categoriesByName);*/
+
+
+                    var categorySongs = beatmapIndexTraverse.Field("_categorySongs").GetValue<Dictionary<Category, List<Song>>>();
+                    categorySongs.TryAdd(customCategory, new List<Song>());
+                    beatmapIndexTraverse.Field("_categorySongs").SetValue(categorySongs);
+                }
             }
-
 
 
             /*
@@ -160,6 +164,15 @@ namespace UnbeatableSongHack.CustomMaps
 
         }
 
+        public static Category GetCustomCategory(string name)
+        {
+            foreach(Category category in customCategories)
+            {
+                if(category.Name.Equals(name)) { return category; }
+            }
+            // this shouldn't happen, and if it does you have fucked up
+            return null;
+        }
 
         // Patch to make the game load custom beatmaps on arcade db load
         [HarmonyPatch(typeof(ArcadeSongDatabase), "LoadDatabase")]
@@ -169,15 +182,20 @@ namespace UnbeatableSongHack.CustomMaps
             {
                 Core.GetLogger().Msg("Loading DB...");
 
-                TryAddCustomCategory();
-
-                var packages = LocalDatabase.GetLocalBeatmapItems();
+                var packages = LocalDatabase.GetBeatmapItems(LocalDatabase.GetLocalBeatmapDirectory());
                 foreach (var package in packages)
                 {
                     Core.GetLogger().Msg(package.Path);
-                    CustomArcade.AddBeatmapItemToArcadeList(ArcadeSongDatabase.Instance, package);
+                    CustomArcade.AddBeatmapItemToArcadeList(ArcadeSongDatabase.Instance, package, localCategory);
                 }
 
+
+                var osupackages = LocalDatabase.GetBeatmapItems(LocalDatabase.GetOsuBeatmapDirectory());
+                foreach (var package in osupackages)
+                {
+                    Core.GetLogger().Msg(package.Path);
+                    CustomArcade.AddBeatmapItemToArcadeList(ArcadeSongDatabase.Instance, package, osuCategory);
+                }
 
             }
         }
@@ -187,11 +205,17 @@ namespace UnbeatableSongHack.CustomMaps
         {
             public static void Postfix(ref List<Category> __result)
             {
+                // Actually put the categories in the game
+                TryAddCustomCategory(customCategories);
                 // Add the custom category to the list of visible categories
-                if (!__result.Contains(customCategory))
+                foreach (Category category in customCategories) 
                 {
-                    __result.Add(customCategory);
+                    if (!__result.Contains(category))
+                    {
+                        __result.Add(category);
+                    }
                 }
+
             }
         }
 

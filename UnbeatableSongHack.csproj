@@ -524,6 +524,7 @@
 		<Compile Include="CustomMaps\LocalPlayer.cs" />
 		<Compile Include="FMODInstances.cs" />
 		<Compile Include="Cheats\TreeExplorer.cs" />
+		<Compile Include="Translation\Dump.cs" />
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">

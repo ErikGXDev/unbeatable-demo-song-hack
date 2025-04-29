@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Rhythm;
+﻿using Rhythm;
 using static Arcade.UI.SongSelect.ArcadeSongDatabase;
 using UnityEngine;
 using Arcade.UI.SongSelect;
-using NarrativeGraph;
 
 namespace UnbeatableSongHack.CustomMaps
 {

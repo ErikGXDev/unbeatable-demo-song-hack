@@ -1,12 +1,8 @@
 ﻿using Arcade.UI.SongSelect;
 using Arcade.UI;
 using Rhythm;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using static Arcade.UI.SongSelect.ArcadeSongDatabase;
 using static Rhythm.BeatmapIndex;
-using UnityEngine;
 using HarmonyLib;
 using FMOD.Studio;
 
@@ -68,7 +64,7 @@ namespace UnbeatableSongHack.CustomMaps
         {
 
 
-            if(!LocalLoader.LoadBeatmapFromFile(filePath, out BeatmapItem beatmapItem))
+            if (!LocalLoader.LoadBeatmapFromFile(filePath, out BeatmapItem beatmapItem))
             {
                 Core.GetLogger().Msg("Beatmap not found: " + filePath);
                 return;
@@ -121,7 +117,7 @@ namespace UnbeatableSongHack.CustomMaps
                 {
 
                     key = Encoder.DecodeAudioName(key);
-                    
+
 
                     if (File.Exists(key))
                     {

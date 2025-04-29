@@ -1,8 +1,5 @@
 ﻿using FMOD.Studio;
 using FMODUnity;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using static UnbeatableSongHack.Core;
 

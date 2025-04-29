@@ -1,15 +1,7 @@
-﻿using Arcade.UI;
-using Arcade.UI.SongSelect;
+﻿using Arcade.UI.SongSelect;
 using HarmonyLib;
-using JetBrains.Annotations;
 using Rhythm;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
-using UnityEngine.Rendering;
 using static Arcade.UI.SongSelect.ArcadeSongDatabase;
-using static MelonLoader.MelonLogger;
 using static Rhythm.BeatmapIndex;
 
 namespace UnbeatableSongHack.CustomMaps
@@ -19,7 +11,7 @@ namespace UnbeatableSongHack.CustomMaps
 
         public static Category localCategory = new Category("LOCAL", "Local songs", 7);
         public static Category osuCategory = new Category("[white label]", "for editing", 8);
-        public static List<Category> customCategories = new List<Category>([localCategory,osuCategory]);
+        public static List<Category> customCategories = new List<Category>([localCategory, osuCategory]);
 
         public static void AddBeatmapItemToArcadeList(ArcadeSongDatabase instance, BeatmapItem item, Category category)
         {
@@ -118,7 +110,7 @@ namespace UnbeatableSongHack.CustomMaps
 
         public static void TryAddCustomCategory(List<Category> categories)
         {
-            foreach(Category customCategory in customCategories) 
+            foreach (Category customCategory in customCategories)
             {
                 BeatmapIndex beatmapIndex = BeatmapIndex.defaultIndex;
 
@@ -166,9 +158,9 @@ namespace UnbeatableSongHack.CustomMaps
 
         public static Category GetCustomCategory(string name)
         {
-            foreach(Category category in customCategories)
+            foreach (Category category in customCategories)
             {
-                if(category.Name.Equals(name)) { return category; }
+                if (category.Name.Equals(name)) { return category; }
             }
             // this shouldn't happen, and if it does you have fucked up
             return null;
@@ -208,7 +200,7 @@ namespace UnbeatableSongHack.CustomMaps
                 // Actually put the categories in the game
                 TryAddCustomCategory(customCategories);
                 // Add the custom category to the list of visible categories
-                foreach (Category category in customCategories) 
+                foreach (Category category in customCategories)
                 {
                     if (!__result.Contains(category))
                     {

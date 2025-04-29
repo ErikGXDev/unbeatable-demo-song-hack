@@ -18,7 +18,7 @@ namespace UnbeatableSongHack.CustomMaps
     {
 
         public static Category localCategory = new Category("LOCAL", "Local songs", 7);
-        public static Category osuCategory = new Category("osu", "for editing", 8);
+        public static Category osuCategory = new Category("[white label]", "for editing", 8);
         public static List<Category> customCategories = new List<Category>([localCategory,osuCategory]);
 
         public static void AddBeatmapItemToArcadeList(ArcadeSongDatabase instance, BeatmapItem item, Category category)
@@ -182,13 +182,15 @@ namespace UnbeatableSongHack.CustomMaps
             {
                 Core.GetLogger().Msg("Loading DB...");
 
-                var packages = LocalDatabase.GetLocalBeatmapItems();
+                var packages = LocalDatabase.GetBeatmapItems(LocalDatabase.GetLocalBeatmapDirectory());
                 foreach (var package in packages)
                 {
                     Core.GetLogger().Msg(package.Path);
                     CustomArcade.AddBeatmapItemToArcadeList(ArcadeSongDatabase.Instance, package, localCategory);
                 }
-                var osupackages = LocalDatabase.GetOsuBeatmapItems("C:\\Users\\test_me\\AppData\\Local\\osu!\\Songs\\WHITE_LABEL");
+
+
+                var osupackages = LocalDatabase.GetBeatmapItems(LocalDatabase.GetOsuBeatmapDirectory());
                 foreach (var package in osupackages)
                 {
                     Core.GetLogger().Msg(package.Path);

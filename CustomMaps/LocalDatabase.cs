@@ -1,4 +1,5 @@
-﻿using Rhythm;
+﻿
+using Rhythm;
 using UnityEngine;
 using static Arcade.UI.SongSelect.ArcadeSongDatabase;
 
@@ -23,9 +24,12 @@ namespace UnbeatableSongHack.CustomMaps
         public static string GetOsuBeatmapDirectory()
         {
             // Path of the game exe
-            string dataDir = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf('/'));
+            string test = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf('/'));
+            Core.GetLogger().Msg("slice 1: " + test);
+            string dataDir = test.Substring(0, test.LastIndexOf('/'));
+            Core.GetLogger().Msg("slice 2: " + dataDir);
             // Get the directory of the custom songs
-            string songDir = dataDir + "/CustomSongs";
+            string songDir = dataDir + "/UNBEATABLE [white label]/CustomBeatmapsV3-Data/SERVER_PACKAGES";
             return songDir;
         }
 
@@ -60,7 +64,7 @@ namespace UnbeatableSongHack.CustomMaps
 
         }
 
-        public static List<BeatmapItem> GetOsuBeatmapItems(string songDir)
+        public static List<BeatmapItem> GetBeatmapItems(string songDir)
         {
 
             // Get the directory of the custom songs

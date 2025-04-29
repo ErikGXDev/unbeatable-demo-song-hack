@@ -25,49 +25,40 @@ namespace UnbeatableSongHack.Translation
                 Directory.CreateDirectory(outPath);
             }
 
-            Core.GetLogger().Msg("Dumping translations...");
 
+            YarnProject[] projects = (YarnProject[])Resources.FindObjectsOfTypeAll(typeof(YarnProject));
 
-            YarnProject[] projects = UnityEngine.Object.FindObjectsByType<YarnProject>(FindObjectsSortMode.InstanceID);
+            
 
             Core.GetLogger().Msg(projects.Length + " projects found.");
 
-            Core.GetLogger().Msg("Dumping translations...");
 
 
             foreach (YarnProject project in projects)
             {
                 string program = project.GetProgram().ToString();
 
-                Core.GetLogger().Msg("1Dumping translations...");
 
                 string fileName = project.name + ".yarnproject.json";
 
-                Core.GetLogger().Msg("1Dumping translations...");
 
                 string filePath = outPath + fileName;
 
-                Core.GetLogger().Msg("1Dumping translations...");
 
 
                 File.WriteAllText(filePath, program);
 
-                Core.GetLogger().Msg("1Dumping translations...");
-
 
             }
 
-            Core.GetLogger().Msg("Dumping translations...");
 
 
             var baseLoc = projects[0].baseLocalization;
 
-            Core.GetLogger().Msg("Dumping translations...");
 
 
             var lineRec = new Dictionary<string, string>();
 
-            Core.GetLogger().Msg("Dumping translations...");
 
 
             foreach (string id in baseLoc.GetLineIDs())
@@ -75,17 +66,13 @@ namespace UnbeatableSongHack.Translation
                 lineRec.Add(id, baseLoc.GetLocalizedString(id));
             }
 
-            Core.GetLogger().Msg("Dumping translations...");
 
 
             var outLines = JsonConvert.SerializeObject(lineRec, Formatting.Indented);
 
-            Core.GetLogger().Msg("Dumping translations...");
 
 
             var outPathLines = outPath + "lines.json";
-
-            Core.GetLogger().Msg("Dumping translations...");
 
 
             File.WriteAllText(outPathLines, outLines);

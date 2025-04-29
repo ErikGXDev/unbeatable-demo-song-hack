@@ -180,6 +180,19 @@ namespace UnbeatableSongHack.Cheats
                     }
                 }
 
+                if (GUI.Button(new Rect(30, 55, 100, 30), "Dump Lines"))
+                {
+                    try
+                    {
+                        Translation.Dump.DumpTranslations();
+                    }
+                    catch (Exception e)
+                    {
+                        Core.GetLogger().Msg("Error dumping lines: " + e.Message);
+                        Core.GetLogger().Msg(e.StackTrace);
+                    }
+                }
+
                 if (GUI.Button(new Rect(130, 55, 100, 30), "Play File Level"))
                 {
                     if (!string.IsNullOrEmpty(textInput))

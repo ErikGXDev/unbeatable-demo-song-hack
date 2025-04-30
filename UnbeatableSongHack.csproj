@@ -15,7 +15,7 @@
 
 
 		<!-- Edit this path to point to your game path -->
-		<GamePath>C:\Program Files (x86)\Steam\steamapps\common\UNBEATABLE Demo</GamePath>
+		<GamePath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo</GamePath>
 
 
 		<ManagedPath>$(GamePath)\UNBEATABLE [DEMO]_Data\Managed\</ManagedPath>
@@ -525,6 +525,7 @@
 		<Compile Include="FMODInstances.cs" />
 		<Compile Include="Cheats\TreeExplorer.cs" />
 		<Compile Include="Translation\Dump.cs" />
+		<Compile Include="Translation\ProgramLoader.cs" />
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">

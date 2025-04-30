@@ -23,7 +23,10 @@ namespace UnbeatableSongHack.Translation
         {
             public static bool Prefix(Yarn.Unity.YarnProject __instance, ref Yarn.Program __result)
             {
-
+                if (disableCustomTranslation)
+                {
+                    return true;
+                }
 
                 // Get the directory of the custom songs
                 string translationDir = GetLocalTranslationDirectory();
@@ -49,11 +52,19 @@ namespace UnbeatableSongHack.Translation
             }
         }
 
+        public static bool disableCustomTranslation = false;
+
         [HarmonyPatch(typeof(Yarn.Unity.Localization), "GetLocalizedString")]
         public class LocalizationPatch
         {
             public static bool Prefix(Yarn.Unity.Localization __instance, string key, ref string __result)
             {
+
+                if (disableCustomTranslation)
+                {
+                    return true;
+                }
+
                 // Get the directory of the custom songs
                 string translationDir = GetLocalTranslationDirectory();
                 // Get all files in the directory

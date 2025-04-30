@@ -180,7 +180,7 @@ namespace UnbeatableSongHack.Cheats
                     }
                 }
 
-                if (GUI.Button(new Rect(30, 55, 100, 30), "Dump Lines"))
+                if (GUI.Button(new Rect(30, 55, 100, 30), "Dump Transl."))
                 {
                     try
                     {

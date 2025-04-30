@@ -34,8 +34,18 @@ namespace UnbeatableSongHack.Translation
 
 
 
+            var lineRec = new Dictionary<string, string>();
+
+            bool isCustomDisabled = ProgramLoader.disableCustomTranslation;
+            if (!isCustomDisabled)
+            {
+                ProgramLoader.disableCustomTranslation = true;
+
+            }
+
             foreach (YarnProject project in projects)
             {
+
                 string program = project.GetProgram().ToString();
 
 
@@ -48,29 +58,29 @@ namespace UnbeatableSongHack.Translation
 
                 File.WriteAllText(filePath, program);
 
+                Yarn.Unity.Localization baseLoc = project.baseLocalization;
+
+                
+
+                foreach (string id in baseLoc.GetLineIDs())
+                {
+                    if (!lineRec.TryAdd(id, baseLoc.GetLocalizedString(id)))
+                    {
+                        Core.GetLogger().Msg("Duplicate line found: " + id + " in " + fileName);
+                    }
+                    
+                }
+
+               
 
             }
 
-
-
-            var baseLoc = projects[0].baseLocalization;
-
-
-
-            var lineRec = new Dictionary<string, string>();
-
-
-
-            foreach (string id in baseLoc.GetLineIDs())
+            if (!isCustomDisabled)
             {
-                lineRec.Add(id, baseLoc.GetLocalizedString(id));
+                ProgramLoader.disableCustomTranslation = false;
             }
-
-
 
             var outLines = JsonConvert.SerializeObject(lineRec, Formatting.Indented);
-
-
 
             var outPathLines = outPath + "lines.json";
 

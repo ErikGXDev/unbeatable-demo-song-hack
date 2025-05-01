@@ -496,12 +496,12 @@
 		<Reference Include="YarnSpinner.Unity">
 			<HintPath>$(ManagedPath)\YarnSpinner.Unity.dll</HintPath>
 		</Reference>
-		<Reference Include="MelonLoader">
-			<HintPath>$(GamePath)\MelonLoader\net35\MelonLoader.dll</HintPath>
-		</Reference>
-		<Reference Include="0Harmony">
-			<HintPath>$(GamePath)\MelonLoader\net35\0Harmony.dll</HintPath>
-		</Reference>
+    <Reference Include="Harmony">
+      <HintPath>$(GamePath)\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(GamePath)\BepInEx\core\BepInEx.dll</HintPath>
+    </Reference>
 
 	</ItemGroup>
 
@@ -529,6 +529,6 @@
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)\Mods&quot;" />
+		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;$(GamePath)\BepInEx\plugins\UnbeatableSongHack&quot;" />
 	</Target>
 </Project>

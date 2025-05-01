@@ -1,4 +1,5 @@
-﻿using MelonLoader;
+﻿using BepInEx;
+//using MelonLoader;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
@@ -6,22 +7,37 @@ using HarmonyLib;
 using Rhythm;
 using System.Runtime.InteropServices;
 using UnbeatableSongHack.Cheats;
+using BepInEx.Logging;
 
 // "Unbeatable Demo Song Hack" Mod by Erik G - 2025
-[assembly: MelonInfo(typeof(UnbeatableSongHack.Core), "UnbeatableSongHack", "1.1.0", "Erik G", null)]
-[assembly: MelonGame("D-CELL GAMES", "UNBEATABLE [DEMO]")]
+
+//[assembly: MelonInfo(typeof(UnbeatableSongHack.Core), "UnbeatableSongHack", "1.1.0", "Erik G", null)]
+//[assembly: MelonGame("D-CELL GAMES", "UNBEATABLE [DEMO]")]
 
 namespace UnbeatableSongHack
 {
-    public class Core : MelonMod
+    [BepInPlugin(modGUID, modName, modVersion)]
+    public class Core : BaseUnityPlugin //MelonMod
     {
+        private const string modGUID = "erikg.unbeatable.songhack";
+        private const string modName = "UnbeatableSongHack";
+        private const string modVersion = "1.1.0";
 
-        public override void OnInitializeMelon()
+        public void Awake()
         {
+
+            BepLogger = base.Logger;
+            LoggerInstance = new LoggerInstanceCompat();
+
+
             LoggerInstance.Msg("Initialized Song Hack!");
+
+            // Initialize Harmony
+            Harmony harmony = new Harmony(modGUID);
+            harmony.PatchAll();
         }
 
-        public override void OnLateUpdate()
+        public void LateUpdate()
         {
             if (Input.GetKeyDown(KeyCode.N))
             {
@@ -38,17 +54,35 @@ namespace UnbeatableSongHack
 
         public SongHackUI songHackUI = new SongHackUI();
 
-        public override void OnGUI()
+        public void OnGUI()
         {
             songHackUI.DrawUI();
         }
 
         // Let other classes access the logger
+        internal static new ManualLogSource BepLogger;
+
+        public class LoggerInstanceCompat()
+        {
+            public void Msg(string message)
+            {
+                BepLogger.LogInfo(message);
+            }
+        }
+
+        public static LoggerInstanceCompat LoggerInstance;
+
+        public static LoggerInstanceCompat GetLogger()
+        {
+            return LoggerInstance;
+        }
+
+        /* -- Melon Loader
         public static MelonLogger.Instance GetLogger()
         {
             MelonBase core = Core.FindMelon("UnbeatableSongHack", "Erik G");
             return core.LoggerInstance;
-        }
+        }*/
 
 
         [HarmonyPatch(typeof(RhythmTracker), "HandleCreateProgrammerSound", new Type[] { typeof(EventInstance), typeof(IntPtr) })]

@@ -4,7 +4,7 @@ Most likely the first mod menu for the Unbeatable DEMO.
 
 ## Installation
 
-To use, download MelonLoader ( https://melonwiki.xyz/ ) and put a .dll of this mod into the Mods folder. A GUI should pop up.
+To use, download BepInEx 5 ( https://github.com/BepInEx/BepInEx ) and put a .dll of this mod into a `BepInEx/plugins/UnbeatableSongHack` folder (you will probably have to create that folder yourself). When installed, a GUI should be accessible in-game.
 
 ## Custom Maps
 

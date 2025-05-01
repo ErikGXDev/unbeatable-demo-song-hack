@@ -17,3 +17,4 @@ You can then play them in the Arcade Mode. Filter by the "local" category in the
 ### Developing/Building this
 
 If you want to work on/build this, you should most likely change the `<GamePath>` property in the `UnbeatableSongHack.csproj` file by changing it to your game path (Example: `Y:/.../Unbeatable Demo`).
+Also create a `BepInEx\plugins\UnbeatableSongHack` folder in the game directory.

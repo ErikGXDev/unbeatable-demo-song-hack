@@ -210,7 +210,7 @@ namespace UnbeatableSongHack.Cheats
                     ProgramLoader.disableCustomTranslation = !ProgramLoader.disableCustomTranslation;
                 }
 
-                if (GUI.Button(new Rect(30, 115, 100, 30), "Reload Transl.", translationToggleStyle))
+                if (GUI.Button(new Rect(30, 115, 100, 30), "Reload Transl."))
                 {
                     try
                     {
@@ -288,7 +288,7 @@ namespace UnbeatableSongHack.Cheats
                 }
 
                 // God Mode toggle
-                if (GUI.Button(new Rect(10, 120, 100, 25), "Toggle God", godModeButton))
+                if (GUI.Button(new Rect(10, 150, 100, 25), "Toggle God", godModeButton))
                 {
                     bool isGodMode = GodMode.ToggleGodMode();
                     Core.GetLogger().Msg("God Mode: " + isGodMode);
@@ -305,7 +305,7 @@ namespace UnbeatableSongHack.Cheats
                 }
 
                 // Autoplay toggle
-                if (GUI.Button(new Rect(110, 120, 100, 25), "Toggle Auto", autoPlayButton))
+                if (GUI.Button(new Rect(110, 150, 100, 25), "Toggle Auto", autoPlayButton))
                 {
                     bool isAutoPlay = AutoPlay.ToggleAutoPlay();
                     FileStorage.profile.SaveBeatmapOptions();

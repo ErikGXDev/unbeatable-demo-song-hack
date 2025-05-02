@@ -515,7 +515,7 @@
 		<Compile Include="Cheats\GodMode.cs" />
 		<Compile Include="Cheats\GodModePatch.cs" />
 		<Compile Include="Cheats\SongHackUI.cs" />
-		<Compile Include="Cheats\UnhideCursorPatch.cs" />
+		<Compile Include="Cheats\FixMouse.cs" />
 		<Compile Include="Core.cs" />
 		<Compile Include="CustomMaps\CustomArcadePatch.cs" />
 		<Compile Include="CustomMaps\CustomArcade.cs" />

@@ -43,7 +43,7 @@ namespace UnbeatableSongHack
                 typeof(GodModePatch),
                 typeof(LocalPlayerPatch),
                 typeof(ProgramLoaderPatch),
-                typeof(UnhideCursorPatch),
+                typeof(FixMouse),
             };
 
             foreach (Type patchClass in patchClasses)

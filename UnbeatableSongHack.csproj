@@ -513,13 +513,17 @@
 	<ItemGroup>
 		<Compile Include="Cheats\AutoPlay.cs" />
 		<Compile Include="Cheats\GodMode.cs" />
+		<Compile Include="Cheats\GodModePatch.cs" />
 		<Compile Include="Cheats\SongHackUI.cs" />
+		<Compile Include="Cheats\UnhideCursorPatch.cs" />
 		<Compile Include="Core.cs" />
+		<Compile Include="CustomMaps\CustomArcadePatch.cs" />
 		<Compile Include="CustomMaps\CustomArcade.cs" />
 		<Compile Include="CustomMaps\DatabaseConfig.cs" />
 		<Compile Include="CustomMaps\LocalDatabase.cs" />
 		<Compile Include="CustomMaps\Encoder.cs" />
 		<Compile Include="CustomMaps\LocalLoader.cs" />
+		<Compile Include="CustomMaps\LocalPlayerPatch.cs" />
 		<Compile Include="CustomMaps\OnlineDatabase.cs" />
 		<Compile Include="CustomMaps\LocalPlayer.cs" />
 		<Compile Include="FMODInstances.cs" />
@@ -527,6 +531,7 @@
 		<Compile Include="Translation\Dump.cs" />
 		<Compile Include="Translation\ProgramIndex.cs" />
 		<Compile Include="Translation\ProgramLoader.cs" />
+		<Compile Include="Translation\ProgramLoaderPatch.cs" />
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">

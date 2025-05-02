@@ -8,6 +8,8 @@ namespace UnbeatableSongHack.Translation
     public class ProgramLoader
     {
 
+        public static bool disableCustomTranslation = false;
+
         public static string GetLocalTranslationDirectory()
         {
             // Path of the game exe
@@ -69,50 +71,7 @@ namespace UnbeatableSongHack.Translation
         }
 
 
-        [HarmonyPatch(typeof(Yarn.Unity.YarnProject), "GetProgram")]
-        public class YarnProjectPatch
-        {
-            public static bool Prefix(Yarn.Unity.YarnProject __instance, ref Yarn.Program __result)
-            {
-                if (disableCustomTranslation)
-                {
-                    return true;
-                }
-
-                if (ProgramIndex.programs.ContainsKey(__instance.name))
-                {
-                    __result = ProgramIndex.programs[__instance.name];
-                    return false;
-                }
-
-                return true;
-            }
-        }
-
-        public static bool disableCustomTranslation = false;
-
-        [HarmonyPatch(typeof(Yarn.Unity.Localization), "GetLocalizedString")]
-        public class LocalizationPatch
-        {
-            public static bool Prefix(Yarn.Unity.Localization __instance, string key, ref string __result)
-            {
-
-                if (disableCustomTranslation)
-                {
-                    return true;
-                }
-
-                if (ProgramIndex.lines.ContainsKey(key))
-                {
-                    __result = ProgramIndex.lines[key];
-                    return false;
-                }
-
-
-                return true;
-
-            }
-        }
+       
     }
 
 

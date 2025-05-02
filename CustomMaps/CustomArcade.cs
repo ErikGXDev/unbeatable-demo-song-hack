@@ -166,65 +166,7 @@ namespace UnbeatableSongHack.CustomMaps
             return null;
         }
 
-        // Patch to make the game load custom beatmaps on arcade db load
-        [HarmonyPatch(typeof(ArcadeSongDatabase), "LoadDatabase")]
-        public class LoadDatabasePatch
-        {
-            public static void Postfix(ArcadeSongDatabase __instance)
-            {
-                Core.GetLogger().Msg("Loading DB...");
-
-                var packages = LocalDatabase.GetBeatmapItems(LocalDatabase.GetLocalBeatmapDirectory());
-                foreach (var package in packages)
-                {
-                    Core.GetLogger().Msg(package.Path);
-                    CustomArcade.AddBeatmapItemToArcadeList(ArcadeSongDatabase.Instance, package, localCategory);
-                }
-
-
-                var osupackages = LocalDatabase.GetBeatmapItems(LocalDatabase.GetOsuBeatmapDirectory());
-                foreach (var package in osupackages)
-                {
-                    Core.GetLogger().Msg(package.Path);
-                    CustomArcade.AddBeatmapItemToArcadeList(ArcadeSongDatabase.Instance, package, osuCategory);
-                }
-
-            }
-        }
-
-        [HarmonyPatch(typeof(BeatmapIndex), "GetVisibleCategories")]
-        public class GetVisibleCategoriesPatch
-        {
-            public static void Postfix(ref List<Category> __result)
-            {
-                // Actually put the categories in the game
-                TryAddCustomCategory(customCategories);
-                // Add the custom category to the list of visible categories
-                foreach (Category category in customCategories)
-                {
-                    if (!__result.Contains(category))
-                    {
-                        __result.Add(category);
-                    }
-                }
-
-            }
-        }
-
-
-        // Patch the song function to return all (also hidden) songs,
-        // so we can access hidden beatmaps
-        [HarmonyPatch(typeof(BeatmapIndex), "GetVisibleSongs")]
-        public class BeatmapIndexPatch
-        {
-            public static bool Prefix(ref BeatmapIndex __instance, ref List<Song> __result)
-            {
-                // Suprisingly easy.
-                __result = __instance.GetAllSongs();
-
-                return false;
-            }
-        }
+        
 
 
     }

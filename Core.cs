@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using UnbeatableSongHack.Cheats;
 using BepInEx.Logging;
 using UnbeatableSongHack.Translation;
+using UnbeatableSongHack.CustomMaps;
 
 // "Unbeatable Demo Song Hack" Mod by Erik G - 2025
 
@@ -24,6 +25,8 @@ namespace UnbeatableSongHack
         private const string modName = "UnbeatableSongHack";
         private const string modVersion = "1.1.0";
 
+        Harmony harmony = new Harmony(modGUID);
+
         public void Awake()
         {
 
@@ -33,9 +36,21 @@ namespace UnbeatableSongHack
 
             LoggerInstance.Msg("Initialized Song Hack!");
 
-            // Initialize Harmony
-            Harmony harmony = new Harmony(modGUID);
-            harmony.PatchAll();
+            // Harmony
+            Type[] patchClasses =
+            {
+                typeof(CustomArcadePatch),
+                typeof(GodModePatch),
+                typeof(LocalPlayerPatch),
+                typeof(ProgramLoaderPatch),
+                typeof(UnhideCursorPatch),
+            };
+
+            foreach (Type patchClass in patchClasses)
+            {
+                harmony.PatchAll(patchClass);
+            }
+
 
             ProgramLoader.LoadLocalTranslations();
         }
@@ -63,7 +78,7 @@ namespace UnbeatableSongHack
         }
 
         // Let other classes access the logger
-        internal static new ManualLogSource BepLogger;
+        internal static ManualLogSource BepLogger;
 
         public class LoggerInstanceCompat()
         {
@@ -88,6 +103,7 @@ namespace UnbeatableSongHack
         }*/
 
 
+        /*
         [HarmonyPatch(typeof(RhythmTracker), "HandleCreateProgrammerSound", new Type[] { typeof(EventInstance), typeof(IntPtr) })]
         public static class RhythmTrackerPatch
         {
@@ -125,7 +141,7 @@ namespace UnbeatableSongHack
 
                 return true;
             }
-        }
+        }*/
 
 
 

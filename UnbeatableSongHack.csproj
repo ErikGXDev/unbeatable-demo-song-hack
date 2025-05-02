@@ -525,6 +525,7 @@
 		<Compile Include="FMODInstances.cs" />
 		<Compile Include="Cheats\TreeExplorer.cs" />
 		<Compile Include="Translation\Dump.cs" />
+		<Compile Include="Translation\ProgramIndex.cs" />
 		<Compile Include="Translation\ProgramLoader.cs" />
 	</ItemGroup>
 	

@@ -8,6 +8,7 @@ using Rhythm;
 using System.Runtime.InteropServices;
 using UnbeatableSongHack.Cheats;
 using BepInEx.Logging;
+using UnbeatableSongHack.Translation;
 
 // "Unbeatable Demo Song Hack" Mod by Erik G - 2025
 
@@ -35,6 +36,8 @@ namespace UnbeatableSongHack
             // Initialize Harmony
             Harmony harmony = new Harmony(modGUID);
             harmony.PatchAll();
+
+            ProgramLoader.LoadLocalTranslations();
         }
 
         public void LateUpdate()

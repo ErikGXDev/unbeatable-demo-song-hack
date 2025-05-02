@@ -1,6 +1,7 @@
 ﻿using FMOD.Studio;
 using FMODUnity;
 using UnbeatableSongHack.CustomMaps;
+using UnbeatableSongHack.Translation;
 using UnityEngine;
 
 using static UnbeatableSongHack.Cheats.TreeExplorer;
@@ -189,6 +190,35 @@ namespace UnbeatableSongHack.Cheats
                     catch (Exception e)
                     {
                         Core.GetLogger().Msg("Error dumping lines: " + e.Message);
+                        Core.GetLogger().Msg(e.StackTrace);
+                    }
+                }
+
+
+                GUIStyle translationToggleStyle;
+                if (!ProgramLoader.disableCustomTranslation)
+                {
+                    translationToggleStyle = compactEnabledButtonStyle;
+                }
+                else
+                {
+                    translationToggleStyle = compactButtonStyle;
+                }
+
+                if (GUI.Button(new Rect(30, 85, 100, 30), "Toggle Transl.", translationToggleStyle))
+                {
+                    ProgramLoader.disableCustomTranslation = !ProgramLoader.disableCustomTranslation;
+                }
+
+                if (GUI.Button(new Rect(30, 115, 100, 30), "Reload Transl.", translationToggleStyle))
+                {
+                    try
+                    {
+                        ProgramLoader.LoadLocalTranslations();
+                    }
+                    catch (Exception e)
+                    {
+                        Core.GetLogger().Msg("Error translating lines: " + e.Message);
                         Core.GetLogger().Msg(e.StackTrace);
                     }
                 }

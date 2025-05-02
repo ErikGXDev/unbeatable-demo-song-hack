@@ -12,7 +12,7 @@ namespace UnbeatableSongHack.Translation
         {
             // Path of the game exe
             string dataDir = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf('/'));
-            // Get the directory of the custom songs
+            // Get the directory of the custom translations
             string translationDir = dataDir + "/Translation";
 
             if (!Directory.Exists(translationDir))
@@ -22,6 +22,50 @@ namespace UnbeatableSongHack.Translation
             }
 
             return translationDir;
+        }
+
+        public static void LoadLocalTranslations()
+        {
+
+            ProgramIndex.programs.Clear();
+            ProgramIndex.lines.Clear();
+
+            // Get the directory of the custom translations
+            string translationDir = GetLocalTranslationDirectory();
+
+            // Get all files in the directory
+            // *.yarnproject.json and lines.json
+            string[] files = Directory.GetFiles(translationDir, "*.yarnproject.json", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                string programText = File.ReadAllText(file);
+
+                Yarn.Program program = Yarn.Program.Parser.ParseJson(programText);
+
+                string name = Path.GetFileNameWithoutExtension(file);
+
+                if (name.LastIndexOf('.') != -1)
+                {
+                    name = name.Substring(0, name.LastIndexOf('.'));
+                }
+
+
+                Core.GetLogger().Msg("Loaded program: " + name);
+
+                ProgramIndex.programs.Add(name, program);
+            }
+
+            files = Directory.GetFiles(translationDir, "lines.json", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                string jsonText = File.ReadAllText(file);
+                Dictionary<string, string> lines = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonText);
+                foreach (KeyValuePair<string, string> line in lines)
+                {
+                    ProgramIndex.lines.Add(line.Key, line.Value);
+                }
+            }
+
         }
 
 
@@ -35,26 +79,12 @@ namespace UnbeatableSongHack.Translation
                     return true;
                 }
 
-                // Get the directory of the custom songs
-                string translationDir = GetLocalTranslationDirectory();
-                // Get all files in the directory
-                string[] files = Directory.GetFiles(translationDir, "*.yarnproject.json", SearchOption.AllDirectories);
-                foreach (string file in files)
+                if (ProgramIndex.programs.ContainsKey(__instance.name))
                 {
-                    if (file.Contains(__instance.name))
-                    {
-
-                        string programText = File.ReadAllText(file);
-
-
-                        Yarn.Program program = Yarn.Program.Parser.ParseJson(programText);
-
-
-                        __result = program;
-
-                        return false;
-                    }
+                    __result = ProgramIndex.programs[__instance.name];
+                    return false;
                 }
+
                 return true;
             }
         }
@@ -72,26 +102,12 @@ namespace UnbeatableSongHack.Translation
                     return true;
                 }
 
-                // Get the directory of the custom songs
-                string translationDir = GetLocalTranslationDirectory();
-                // Get all files in the directory
-                string[] files = Directory.GetFiles(translationDir, "lines.json", SearchOption.AllDirectories);
-                foreach (string file in files)
+                if (ProgramIndex.lines.ContainsKey(key))
                 {
-
-                    string jsonText = File.ReadAllText(file);
-                    Dictionary<string, string> lines = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonText);
-
-                    if (lines.ContainsKey(key))
-                    {
-
-                        Core.GetLogger().Msg("Found translation for key: " + key);
-
-                        __result = lines[key];
-                        return false;
-                    }
-
+                    __result = ProgramIndex.lines[key];
+                    return false;
                 }
+
 
                 return true;
 

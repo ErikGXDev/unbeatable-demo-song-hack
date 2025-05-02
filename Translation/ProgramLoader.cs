@@ -14,6 +14,13 @@ namespace UnbeatableSongHack.Translation
             string dataDir = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf('/'));
             // Get the directory of the custom songs
             string translationDir = dataDir + "/Translation";
+
+            if (!Directory.Exists(translationDir))
+            {
+                // Create the directory if it doesn't exist
+                Directory.CreateDirectory(translationDir);
+            }
+
             return translationDir;
         }
 

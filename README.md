@@ -2,7 +2,7 @@
 
 Most likely the first mod menu for the Unbeatable DEMO.
 
-This mod may function as a starting point for anyone who wants to mod the game, since features (i.e loading and playing custom maps, custom translations) are included here. Feel free to use code as this mod is published under the MIT License, credit is appreciated but not needed. Happy modding!
+This mod may function as a starting point for anyone who wants to mod the game, since features (i.e loading and playing custom maps, custom translations) are included here. Feel free to use code as this mod is published under the MIT License, credit is appreciated but not needed (You can of course also just use this mod for custom songs and translations). Happy modding!
 
 ## Installation
 

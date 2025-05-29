@@ -61,12 +61,15 @@ namespace UnbeatableSongHack.Translation
             foreach (string file in files)
             {
                 string jsonText = File.ReadAllText(file);
+
                 Dictionary<string, string> lines = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonText);
                 foreach (KeyValuePair<string, string> line in lines)
                 {
                     ProgramIndex.lines.Add(line.Key, line.Value);
                 }
             }
+
+            Core.GetLogger().Msg("Loaded lines: " + ProgramIndex.lines.Count);
 
         }
 

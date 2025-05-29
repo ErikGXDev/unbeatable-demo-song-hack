@@ -3,7 +3,7 @@ using FMODUnity;
 using UnbeatableSongHack.CustomMaps;
 using UnbeatableSongHack.Translation;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using static UnbeatableSongHack.Cheats.TreeExplorer;
 
 
@@ -221,6 +221,11 @@ namespace UnbeatableSongHack.Cheats
                         Core.GetLogger().Msg("Error translating lines: " + e.Message);
                         Core.GetLogger().Msg(e.StackTrace);
                     }
+                }
+
+                if (GUI.Button(new Rect(130, 115, 100, 30), "Reload Scene"))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
 
                 if (GUI.Button(new Rect(130, 55, 100, 30), "Play File Level"))

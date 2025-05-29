@@ -2,6 +2,7 @@
 using static Arcade.UI.SongSelect.ArcadeSongDatabase;
 using UnityEngine;
 using Arcade.UI.SongSelect;
+using UnityEngine.SceneManagement;
 
 namespace UnbeatableSongHack.CustomMaps
 {
@@ -20,6 +21,10 @@ namespace UnbeatableSongHack.CustomMaps
             // Read the beatmap file
             string contents = File.ReadAllText(file);
 
+
+            Core.GetLogger().Msg("Check: " + contents.Substring(0, 20));
+
+
             Beatmap beatmap = ScriptableObject.CreateInstance<Beatmap>();
             BeatmapParserEngine beatmapParserEngine = new BeatmapParserEngine();
             beatmapParserEngine.ReadBeatmap(contents, ref beatmap);
@@ -30,7 +35,10 @@ namespace UnbeatableSongHack.CustomMaps
             beatmapItem = new BeatmapItem();
 
             beatmapItem.Beatmap = beatmap;
+
+
             if (beatmapItem.Beatmap.metadata.tagData.Level.Equals(0)) { beatmapItem.Beatmap.metadata.tagData.Level = 99; }
+
             //beatmapItem.Beatmap.metadata.tagData.Level = 99;
             //beatmapItem.Beatmap.metadata.tagData.SongLength = 99;
 
@@ -50,6 +58,7 @@ namespace UnbeatableSongHack.CustomMaps
             };
             string[] difficultyList = difficultyIndex.Keys.ToArray();
 
+
             // Check if the difficulty is in the default list
             // If not, set it to one that can be found in the game
             if (difficultyIndex.TryGetValue(beatmap.metadata.version, out string d))
@@ -57,10 +66,14 @@ namespace UnbeatableSongHack.CustomMaps
                 difficulty = d;
             }
 
+
+
             // Find audio file
             var basePath = Path.GetDirectoryName(file);
             var audioFilename = beatmap.general.audioFilename;
             var audioPath = Path.Combine(basePath, audioFilename);
+
+
 
             // Check for audio file specified in metadata
             if (!File.Exists(audioPath))
@@ -82,6 +95,7 @@ namespace UnbeatableSongHack.CustomMaps
                 }
             }
 
+
             var mapDataName = Encoder.EncodeSongName(basePath, audioPath);
 
             beatmapItem.Path = mapDataName + "/" + difficulty;
@@ -94,7 +108,14 @@ namespace UnbeatableSongHack.CustomMaps
 
             beatmapItem.BeatmapInfo = new BeatmapInfo(textAsset, difficulty);
 
-            beatmapItem.Highscore = ArcadeSongDatabase.Instance.HighScores.GetScoreItem(mapDataName + "/" + difficulty);
+
+            if (ArcadeSongDatabase.Instance)
+            { 
+                beatmapItem.Highscore = ArcadeSongDatabase.Instance.HighScores.GetScoreItem(mapDataName + "/" + difficulty); 
+            }
+
+            Core.GetLogger().Msg("Read beatmap : " + beatmapItem.Beatmap.metadata.title + " - " + difficulty);
+
 
             return true;
         }

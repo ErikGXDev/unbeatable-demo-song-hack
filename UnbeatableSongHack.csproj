@@ -15,7 +15,7 @@
 
 
 		<!-- Edit this path to point to your game path -->
-		<GamePath>Q:\Programme\Steam\steamapps\common\UNBEATABLE Demo</GamePath>
+		<GamePath>D:\Programs\Steam\steamapps\common\UNBEATABLE Demo</GamePath>
 
 
 		<ManagedPath>$(GamePath)\UNBEATABLE [DEMO]_Data\Managed\</ManagedPath>
@@ -520,6 +520,7 @@
 		<Compile Include="CustomMaps\CustomArcadePatch.cs" />
 		<Compile Include="CustomMaps\CustomArcade.cs" />
 		<Compile Include="CustomMaps\DatabaseConfig.cs" />
+		<Compile Include="CustomMaps\Dump.cs" />
 		<Compile Include="CustomMaps\LocalDatabase.cs" />
 		<Compile Include="CustomMaps\Encoder.cs" />
 		<Compile Include="CustomMaps\LocalLoader.cs" />

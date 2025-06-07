@@ -79,6 +79,7 @@ namespace UnbeatableSongHack.CustomMaps
         }
 
 
+        // Retired function
         public static void PlayFromKey(string name)
         {
             var arcadeBGMManger = ArcadeBGMManager.Instance;

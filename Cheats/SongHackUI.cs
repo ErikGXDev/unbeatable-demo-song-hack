@@ -171,13 +171,16 @@ namespace UnbeatableSongHack.Cheats
                     }
                 }
 
-                if (GUI.Button(new Rect(230, 55, 110, 30), "Sound from Key"))
+                if (GUI.Button(new Rect(230, 55, 110, 30), "Dump Beatmaps"))
                 {
-                    if (!string.IsNullOrEmpty(textInput))
+                    try
                     {
-                        CustomMaps.LocalPlayer.PlayFromKey(textInput);
-                        lastEventPath = "Key: " + textInput;
-                        Core.GetLogger().Msg("Playing Key: " + textInput);
+                        CustomMaps.Dump.DumpArcadeBeatmaps();
+                    }
+                    catch (Exception e)
+                    {
+                        Core.GetLogger().Msg("Error dumping beatmaps: " + e.Message);
+                        Core.GetLogger().Msg(e.StackTrace);
                     }
                 }
 

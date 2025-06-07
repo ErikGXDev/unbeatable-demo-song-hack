@@ -162,7 +162,6 @@ namespace UnbeatableSongHack.CustomMaps
             {
                 if (category.Name.Equals(name)) { return category; }
             }
-            // this shouldn't happen, and if it does you have fucked up
             return null;
         }
 
